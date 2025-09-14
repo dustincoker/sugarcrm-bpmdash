@@ -17,12 +17,7 @@ It was built as a practical customization project to extend SugarCRM’s functio
 
 ## File Structure
 ```
-moduleloader/
-├─ manifest.php
-├─ scripts/
-│  └─ post_install.php
-└─ Copy/
-   └─ custom/
+   ├─ custom/
       ├─ clients/base/views/bpmdash/
       │  ├─ bpmdash.hbs
       │  ├─ bpmdash.js
