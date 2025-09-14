@@ -1,0 +1,206 @@
+<style>
+	/* Container */
+	.ext_schools {
+		margin: 6px 8px 10px;
+	}
+
+	/* Card */
+	.school-card {
+		border: 1px solid #e3e6ea;
+		border-left: 4px solid #9aa6b2;
+		/* accent bar */
+		border-radius: 8px;
+		padding: 10px 12px;
+		margin: 10px 0;
+		background: #fff;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+	}
+
+	/* Alternate accent for visual separation */
+	.ext_schools .school-card:nth-child(even) {
+		border-left-color: #5b9bd5;
+	}
+
+	.ext_schools .school-card:nth-child(odd) {
+		border-left-color: #7fb77e;
+	}
+
+	/* Header */
+	.school-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 8px;
+	}
+
+	.school-title {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 1.2;
+	}
+
+	.school-subtle {
+		color: #6b7785;
+		font-size: 12px;
+	}
+
+	/* Status pill */
+	.status-pill {
+		font-size: 11px;
+		padding: 3px 8px;
+		border-radius: 999px;
+		border: 1px solid #d9dee3;
+		background: #f7f9fb;
+		color: #344054;
+		white-space: nowrap;
+	}
+
+	/* Optional color cues by status */
+	.school-card[data-status="TERMINATED"] .status-pill {
+		background: #fff1f0;
+		border-color: #ffd6d5;
+		color: #a8071a;
+	}
+
+	.school-card[data-status="IN PROGRESS"] .status-pill,
+	.school-card[data-status="RUNNING"] .status-pill {
+		background: #f0fff4;
+		border-color: #c8f0d0;
+		color: #0f5132;
+	}
+
+	/* Body grid */
+	.school-grid {
+		display: grid;
+		grid-template-columns: minmax(120px, 160px) 1fr;
+		row-gap: 6px;
+		column-gap: 8px;
+		font-size: 12px;
+	}
+
+	.dta_lbl {
+		color: #6b7785;
+	}
+
+	.dta_val {
+		color: #1f2937;
+	}
+
+	.dta_block {
+		display: contents;
+	}
+
+	/* lets label/value align in grid */
+
+	/* Links look like buttons but stay minimal */
+	.link-chip a {
+		text-decoration: none;
+		border: 1px solid #e0e4ea;
+		padding: 2px 6px;
+		border-radius: 6px;
+		font-size: 11px;
+	}
+
+	/* Small footer to separate entries even more */
+	.school-foot {
+		margin-top: 8px;
+		border-top: 1px dashed #e6eaef;
+		padding-top: 6px;
+		color: #8a97a5;
+		font-size: 11px;
+	}
+</style>
+
+<div class="control-group dashlet-options">
+	<div class="controls controls-two btn-group-fit">
+		<div class="row-fluid">
+			<div>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ext_schools">
+	{{#each schools}}
+	<div class="school-card" data-status="{{[cas_status]}}">
+		<!-- Header: title on left, status on right -->
+		<div class="school-head">
+			<div class="school-title">
+				{{#if [pro_title]}}
+				<a href="#pmse_Project/{{[prj_id]}}" target="_blank">{{[pro_title]}}</a>
+				{{else}}
+				{{#if [first_name]}}{{[first_name]}}{{/if}} {{#if [last_name]}}{{[last_name]}}{{/if}}
+				{{/if}}
+				{{#if [cas_id]}} <span class="school-subtle">• Cas ID {{[cas_id]}}</span>{{/if}}
+			</div>
+			{{#if [cas_status]}}<span class="status-pill">{{[cas_status]}}</span>{{/if}}
+		</div>
+
+		<!-- Body: two-column label/value grid -->
+		<div class="school-grid">
+			{{#if [id]}}
+			<div class="dta_block"><span class="dta_lbl">ID</span><span class="dta_val">{{[id]}}</span></div>
+			{{/if}}
+
+			{{#if [last_name]}}
+			<div class="dta_block"><span class="dta_lbl">Last Name</span><span class="dta_val">{{[last_name]}}</span>
+			</div>
+			{{/if}}
+
+			{{#if [first_name]}}
+			<div class="dta_block"><span class="dta_lbl">First Name</span><span class="dta_val">{{[first_name]}}</span>
+			</div>
+			{{/if}}
+
+			{{#if [cas_id]}}
+			<div class="dta_block">
+				<span class="dta_lbl">Cas ID (link)</span>
+				<span class="dta_val link-chip">
+					<a href="rest/v11_19/pmse_Inbox/{{[cas_id]}}/file/id?format=sugar-html-json&1683612852862=1&platform=base"
+						target="_blank">Open</a>
+				</span>
+			</div>
+			{{/if}}
+
+			{{#if [prj_id]}}
+			<div class="dta_block"><span class="dta_lbl">Project ID</span><span class="dta_val">{{[prj_id]}}</span>
+			</div>
+			{{/if}}
+
+			{{#if [prj_run_order]}}
+			<div class="dta_block"><span class="dta_lbl">Project Run Order</span><span
+					class="dta_val">{{[prj_run_order]}}</span></div>
+			{{/if}}
+
+			{{#if [cas_module]}}
+			<div class="dta_block"><span class="dta_lbl">Module</span><span class="dta_val">{{[cas_module]}}</span>
+			</div>
+			{{/if}}
+
+			{{#if [pro_id]}}
+			<div class="dta_block"><span class="dta_lbl">Process ID</span><span class="dta_val">{{[pro_id]}}</span>
+			</div>
+			{{/if}}
+
+			{{#if [cas_create_date]}}
+			<div class="dta_block"><span class="dta_lbl">Created</span><span
+					class="dta_val">{{[cas_create_date]}}</span></div>
+			{{/if}}
+
+			{{#if [cas_finish_date]}}
+			<div class="dta_block"><span class="dta_lbl">Finished</span><span
+					class="dta_val">{{[cas_finish_date]}}</span></div>
+			{{/if}}
+		</div>
+
+		<!-- Footer -->
+		<div class="school-foot">
+			{{#if [cas_module]}}<span>Module: {{[cas_module]}}</span>{{/if}}
+			{{#if [cas_id]}} <span> • Cas ID: {{[cas_id]}}</span>{{/if}}
+			{{#if [prj_id]}} <span> • Project: {{[prj_id]}}</span>{{/if}}
+		</div>
+	</div>
+	{{/each}}
+</div>

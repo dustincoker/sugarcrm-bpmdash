@@ -1,0 +1,6 @@
+.ext_school { padding: 10px; width: 90% !important; margin: 16px auto; border-top: solid 1px #e8e8e8; border-bottom: solid 1px #cacaca; background: #f9f9f9; font-size: 14px; }
+.ext_school .dta_block .dta_lbl { display:inline-block; font-weight: 700; color: #003865; margin-right: 4px; }
+.ext_school .dta_block .dta_val { display: inline-block; color: #003865;}
+.ext_school a { color: #ff8200; text-decoration: none; }
+.ext_school a:hover { color: #009cde; text-decoration: underline; }
+
