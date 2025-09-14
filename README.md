@@ -16,7 +16,7 @@ It was built as a practical customization project to extend SugarCRM’s functio
 ---
 
 ## File Structure
-
+```
 moduleloader/
 ├─ manifest.php
 ├─ scripts/
@@ -30,7 +30,7 @@ moduleloader/
       ├─ include/css/bpmdash.css
       ├─ include/javascript/sugar7/plugins/CssLoader.js
       └─ Extension/application/Ext/JSGroupings/addCssLoaderPlugin.php
-
+```
 
 ---
 
