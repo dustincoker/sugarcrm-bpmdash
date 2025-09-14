@@ -1,4 +1,4 @@
-# SugarCRM Custom Dashlet: BPM Dash
+# SugarCRM SugarBPM Dashlet
 
 This is a custom SugarCRM dashlet (`bpmdash`) that displays triggered process definition data from `pmse_Inbox` in a clean, card-based layout.  
 It was built as a practical customization project to extend SugarCRM’s functionality.
