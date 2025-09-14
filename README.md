@@ -1,7 +1,7 @@
 # SugarCRM Custom Dashlet: BPM Dash
 
-This is a custom SugarCRM dashlet (`bpmdash`) that displays process case data from `pmse_Inbox` in a clean, card-based layout.  
-It was built as a practical customization project to extend SugarCRM’s functionality and demonstrate modern front-end styling inside Sugar.
+This is a custom SugarCRM dashlet (`bpmdash`) that displays triggered process definition data from `pmse_Inbox` in a clean, card-based layout.  
+It was built as a practical customization project to extend SugarCRM’s functionality.
 
 ---
 
@@ -35,10 +35,10 @@ moduleloader/
 ---
 
 ## Installation
-1. Copy the `custom/` directory into your SugarCRM instance.  
+1. Copy only these files into your instance, **merging into existing folders** (do not overwrite unrelated files):
 2. Run Quick Repair and Rebuild from the Admin panel.  
-3. Add the BPM Dash dashlet to your dashboard.  
-4. The dashlet will automatically fetch related case data for the record you are viewing.  
+3. Add the SugarBPM dashlet to the record view dashboard.  
+4. The dashlet will automatically fetch related triggered process definition data for the record you are viewing.  
 
 ---
 
